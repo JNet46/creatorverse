@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import ViewCreator from './pages/ViewCreator.jsx'
-import EditCreator from './pages/EditCreator.jsx' // 1. Import the new component
+import EditCreator from './pages/EditCreator.jsx'
+import AddCreator from './pages/AddCreator.jsx' // Import the new page
 import './index.css'
 
 const router = createBrowserRouter([
@@ -14,11 +15,15 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
+    path: "/add", // Add the route for the new page
+    element: <AddCreator />,
+  },
+  {
     path: "/view/:id",
     element: <ViewCreator />,
   },
   {
-    path: "/edit/:id", // 2. Add the new route
+    path: "/edit/:id",
     element: <EditCreator />,
   },
 ]);
