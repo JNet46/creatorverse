@@ -7,7 +7,6 @@ import App from './App.jsx'
 import ViewCreator from './pages/ViewCreator.jsx'
 import EditCreator from './pages/EditCreator.jsx'
 import AddCreator from './pages/AddCreator.jsx' // Import the new page
-import './index.css'
 
 const router = createBrowserRouter([
   {

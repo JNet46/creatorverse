@@ -1,34 +1,47 @@
-// src/components/CreatorCard.jsx - The NEW Version
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { Link } from 'react-router-dom'; // Import Link
 
-// Your icon components can stay the same
-const YouTubeIcon = () => { /* ... */ }; 
-const InfoIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" /></svg>;
-
-// The props `onDelete` and `onEdit` are removed
 function CreatorCard({ creator }) {
-  const defaultImage = "https://i.imgur.com/3YQ4Q9s.png";
+  const defaultImage = "https://i.imgur.com/3YQ4Q9s.png"; // A placeholder for broken images
 
   return (
-    <div className="bg-slate-800 rounded-lg shadow-lg overflow-hidden flex flex-col transition-transform transform hover:-translate-y-2">
-      <img
-        src={creator.image_url || defaultImage}
-        alt={`Image of ${creator.name}`}
-        className="w-full h-56 object-cover"
-        onError={(e) => { e.target.onerror = null; e.target.src=defaultImage; }}
-      />
+    // 1. The Main Card Container
+    // This creates the card's background, border, shadow, and rounded corners.
+    <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl shadow-lg overflow-hidden flex flex-col group transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-cyan-500/10">
+      
+      {/* 2. The Image Container */}
+      <div className="overflow-hidden">
+        <img
+          src={creator.image_url || defaultImage}
+          alt={`Image of ${creator.name}`}
+          // This makes the image cover its container without stretching.
+          className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+          onError={(e) => { e.target.onerror = null; e.target.src=defaultImage; }}
+        />
+      </div>
+
+      {/* 3. The Content Container */}
+      {/* This adds padding and uses Flexbox to arrange content. */}
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-2xl font-bold text-white mb-2">{creator.name}</h3>
-        {/* The YouTube link can stay the same */}
         
-        {/* The action button is now a Link to the view page */}
-        <div className="mt-auto pt-4 border-t border-slate-700">
+        {/* 4. The Typography */}
+        {/* We give the text proper sizing, weight, and color. */}
+        <h3 className="text-2xl font-bold text-gray-100 mb-2 truncate">
+          {creator.name}
+        </h3>
+        <p className="text-gray-400 text-sm leading-relaxed flex-grow mb-6">
+          {creator.description.substring(0, 100)}{creator.description.length > 100 && '...'}
+        </p>
+        
+        {/* 5. The Action Button/Link */}
+        <div className="mt-auto pt-4 border-t border-gray-700/50">
            <Link 
               to={`/view/${creator.id}`} 
-              className="flex justify-center items-center w-full px-3 py-2 text-sm font-medium text-cyan-300 bg-cyan-900/50 hover:bg-cyan-800/50 rounded-md"
+              // This styles the link to look like a modern button.
+              className="flex justify-center items-center w-full px-4 py-2 font-semibold text-white bg-cyan-600 hover:bg-cyan-500 rounded-lg shadow-md transition-all duration-300"
             >
-              <InfoIcon /> View Details
+              View Details
            </Link>
         </div>
       </div>
