@@ -16,7 +16,7 @@ function CreatorCard({ creator }) {
           src={creator.image_url || defaultImage}
           alt={`Image of ${creator.name}`}
           // This makes the image cover its container without stretching.
-          className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-fit h-56 object-cover transition-transform duration-300 group-hover:scale-106"
           onError={(e) => { e.target.onerror = null; e.target.src=defaultImage; }}
         />
       </div>

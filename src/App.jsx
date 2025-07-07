@@ -32,13 +32,13 @@ function App() {
   return (
     // Main container with a dark background and a subtle dotted pattern
     <div 
-      className="bg-gray-900 min-h-screen text-white font-sans" 
+      className="bg-blue-900 min-h-screen text-white font-sans" 
       style={{
         backgroundImage: 'radial-gradient(circle at 1px 1px, #4B5563 1px, transparent 0)', 
-        backgroundSize: '25px 25px'
+        backgroundSize: '30px 30px'
       }}
     >
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="center" reverseOrder={true} />
       
       <div className="container mx-auto p-4 sm:p-8">
         <header className="text-center my-12">
