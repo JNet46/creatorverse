@@ -8,13 +8,13 @@ const Layout = () => {
   return (
     <div>
       <header>
-        {/* We will style this using a class name now */}
         <nav className="header-nav">
 
-          {/* 1. The title is now just a strong tag */}
-          <strong style={{ fontSize: '1.5rem' }}>CreatorVerse</strong>
+          {/* Use the new CSS class instead of the inline style */}
+          <strong className="site-title">
+            CreatorVerse
+          </strong>
 
-          {/* 2. The buttons are grouped inside their own div */}
           <div className="nav-buttons">
             <Link to="/" role="button" className="secondary">
               View All Creators
