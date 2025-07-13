@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion'; // Import AnimatePresence
 
 const Layout = () => {
   return (
@@ -16,7 +17,10 @@ const Layout = () => {
         </nav>
       </header>
       <main className="container">
-        <Outlet />
+        {/* Wrap Outlet with AnimatePresence */}
+        <AnimatePresence mode="wait">
+          <Outlet />
+        </AnimatePresence>
       </main>
     </div>
   );

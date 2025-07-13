@@ -5,10 +5,26 @@ import ShowCreators from './pages/ShowCreators';
 import AddCreator from './pages/AddCreator';
 import EditCreator from './pages/EditCreator';
 import ViewCreator from './pages/ViewCreator';
+import { ToastContainer } from 'react-toastify'; // <-- IMPORT TOAST CONTAINER
+import 'react-toastify/dist/ReactToastify.css';  // <-- IMPORT TOAST CSS
 
 const App = () => {
   return (
     <BrowserRouter>
+      {/* ADD THE TOAST CONTAINER HERE SO IT'S AVAILABLE GLOBALLY */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<ShowCreators />} />
