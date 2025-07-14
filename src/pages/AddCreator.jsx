@@ -52,7 +52,7 @@ const AddCreator = () => {
           <textarea id="description" name="description" value={creator.description} onChange={handleChange} required></textarea>
           <small>Provide a description of the creator.</small>
 
-          <label htmlFor="url">URL</label>
+          <label htmlFor="url">Platform URL</label>
           <input type="text" id="url" name="url" value={creator.url} onChange={handleChange} required />
           <small>Provide a link to their main platform.</small>
 
